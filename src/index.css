@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+/* Base animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes modal-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+/* Animation classes */
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+.animate-modal-pop {
+  animation: modal-pop 0.3s ease-out;
+}
+
+/* Glowing button styles */
+.btn-glow {
+  position: relative;
+  z-index: 0;
+  background: #161616;
+  color: white;
+  overflow: hidden;
+}
+
+.btn-glow::before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #FF0000, #FF7300, #fffb00a7,
+    #002BFF, #FF00C8, #FF0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  filter: blur(8px); 
+  animation: glowing 40s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: inherit;
+  opacity: 0;
+}
+
+.btn-glow::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #161616;
+  left: 0;
+  top: 0;
+  border-radius: inherit;
+}
+
+.btn-glow:before {
+  opacity: 1;
+}
+
+
+.btn-glow:after {
+  background: transparent;
+}
+
+
+.sub-glow {
+  background: linear-gradient(
+    45deg,
+    #48ff0083, #ff730089, #fffb0097, #ff00009d,
+    #ff00c88f, #ff00007d
+  );
+}
+.sub-glow:hover {
+  transform: scale(1.05);
+}
+.chapter-glow {
+  background: linear-gradient(
+    45deg,
+    purple,red,green 
+  );
+}
+.topic-glow {
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 0, 0.511),purple,red,green 
+  );
+}
+
+.btn:hover {
+  transform: skewX(-20deg);
+}
+
+.btn1{
+  transition: 2s;
+}
+.btn1:hover {
+  transform: translateX(10px);
+  background: linear-gradient(
+    45deg,
+    rgba(128, 0, 128, 0.161),rgba(255, 0, 0, 0.639),rgba(0, 128, 0, 0.682) 
+  );
+}
+.bdr {
+  border: 2px solid transparent; 
+  transition: border 0.3s ease, transform 0.3s ease; 
+  box-sizing: border-box; 
+}
+
+.bdr:hover {
+  border: 2px solid yellow; 
+  transform: scale(1.02);
+}
